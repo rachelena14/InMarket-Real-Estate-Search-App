@@ -54,6 +54,37 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.get("/getHomes/:city/:state", async (req, res) => {
+  var city = req.params.city;
+  var state = req.params.state;
+  console.log(state, city);
+  try {
+    var options = {
+      method: "GET",
+      url: "https://real-estate12.p.rapidapi.com/listings/sale",
+      params: {
+        state: state,
+        city: city,
+        page: "1",
+        sort: "relevant",
+        type: "single-family,multi-family",
+      },
+      headers: {
+        "x-rapidapi-key": "241deef884msh3e6beced5054f2bp1187cfjsn4317bac7d9fe",
+        "x-rapidapi-host": "real-estate12.p.rapidapi.com",
+      },
+    };
+    const data = await axios.request(options);
+    var homes = data.data.properties;
+    // console.log(data);
+    res.render("all-homes", {homes}); 
+    
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+})
+
 router.get("/:id", async (req, res) => {
   try {
     const propertyData = await Property.findOne({
