@@ -21,14 +21,15 @@ router.get('/:id', (req, res) => {
                     model: Post,
                     attributes: [
                         'id',
-                        'title',
-                        'content',
+                        'propiety_id',
+                        'city',
+                        'state',
                         'created_at'
                     ]
                 },
                 {
-                    model: Post,
-                    attributes: ['title'],
+                    model: Propiety,
+                    attributes: ['propiety_id'],
                 }
             ]
         })
