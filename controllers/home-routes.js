@@ -3,14 +3,16 @@ var axios = require("axios").default;
 
 router.get("/", async (req, res) => {
     console.log("home route hit");
+    var city = req.body.city;
+    var state = req.body.state;
     try {
         
     var options =  {
       method: 'GET',
       url: 'https://real-estate12.p.rapidapi.com/listings/sale',
       params: {
-        state: 'CA',
-        city: 'Los Angeles',
+        state: state,
+        city: city,
         page: '1',
         sort: 'relevant',
         type: 'single-family,multi-family'
