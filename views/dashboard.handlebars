@@ -6,7 +6,7 @@
     </div>
 
     {{#each propieties as |propiety|}}
-        {{> propiety-info post}}
+        {{> propiety-info propiety}}
         
             <a href="/dashboard/edit/{{propiety.id}}"><button class="button mb-5 ml-5 is-warning">edit propiety</button></a>
         </div>
