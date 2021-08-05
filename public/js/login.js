@@ -1,30 +1,25 @@
-//Login
-const loginFormHandler = async (event) => {
+async function loginFormHandler(event) {
     event.preventDefault();
   
-    //get input values
-    const username = document.querySelector('#usernameLogin').value.trim();
-    const password = document.querySelector('#passwordLogin').value.trim();
+    const email = document.querySelector('#email-login').value.trim();
+    const password = document.querySelector('#password-login').value.trim();
   
-    //if you get both then send them to the route
-    if (username && password) {
-      const res = await fetch('/api/users/login', {
-        method: 'POST',
-        body: JSON.stringify({ 
-          username, 
-          password 
+    if (email && password) {
+      const response = await fetch('/api/users/login', {
+        method: 'propiety',
+        body: JSON.stringify({
+          email,
+          password
         }),
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json' }
       });
   
-      //if everything was ok then go back to the dashboard page
-      if (res.ok) {
+      if (response.ok) {
         document.location.replace('/dashboard');
       } else {
-        alert('Failed to log in');
+        alert(response.statusText);
       }
     }
-  };
-  
-  //eventlistener
-  document.querySelector('.loginForm').addEventListener('submit', loginFormHandler);
+  }
+
+  document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
