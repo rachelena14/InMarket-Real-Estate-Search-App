@@ -1,30 +1,36 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
+
 class Location extends Model {}
 
 Location.init(
-    {
+  {
     id: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    foreignKey: true,
-    autoIncrement: true,
-    }, 
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      foreignKey: true,
+      autoIncrement: true,
+    },
     address: {
-    type: DataTypes.STRING,
+      type: DataTypes.STRING,
     },
     postal_code: {
-    type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER,
     },
     state_code: {
-    type: DataTypes.INTEGER,
-    }, 
+      type: DataTypes.INTEGER,
+    },
     city: {
-    type: DataTypes.STRING,
-    }
-    }
-) 
+      type: DataTypes.STRING,
+    },
+  },
+  {
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: "location",
+  }
+);
 
-
-
-
+module.exports = Location;
