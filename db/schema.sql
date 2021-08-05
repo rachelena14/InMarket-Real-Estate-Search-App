@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS inmarket_db;
+
+CREATE DATABASE inmarket_db;
