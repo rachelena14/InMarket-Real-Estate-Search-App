@@ -1,39 +1,3 @@
-
-<<<<<<< HEAD
-router.get('/:id', (req, res) => {
-    User.findOne({
-            attributes: { exclude: ['password'] },
-            where: {
-                id: req.params.id
-            },
-            include: [{
-                    model: Post,
-                    attributes: [
-                        'id',
-                        'propiety_id',
-                        'city',
-                        'state',
-                        'created_at'
-                    ]
-                },
-                {
-                    model: Propiety,
-                    attributes: ['propiety_id'],
-                }
-            ]
-        })
-        .then(dbUserData => {
-            if (!dbUserData) {
-                res.status(404).json({ message: 'No user found with this id' });
-                return;
-            }
-            res.json(dbUserData);
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
-=======
 const router = require("express").Router();
 const { User } = require("../../models");
 const auth = require("../../utils/auth");
@@ -49,7 +13,6 @@ router.get("/", async (req, res) => {
     console.log(err);
     res.status(500).json(err);
   }
->>>>>>> 225ca1581e71d46b6462d4d29292bc549456d497
 });
 
 //POST User data and save to the db
