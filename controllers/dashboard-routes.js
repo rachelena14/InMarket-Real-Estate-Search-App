@@ -34,7 +34,6 @@ router.get("/", auth, async (req, res) => {
     const properties = propertyData.map((property) =>
       property.get({ plain: true })
     );
-    console.log(properties);
     res.render("saved-properties", {
       properties,
       loggedIn: req.session.loggedIn,
@@ -45,5 +44,13 @@ router.get("/", auth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.get("/search", (req, res) => {
+  res.render("search")
+})
+
+router.get("/searched", auth, (req, res) => {
+  res.render("searched-homes");
+})
 
 module.exports = router;
