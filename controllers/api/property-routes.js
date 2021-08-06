@@ -77,8 +77,11 @@ router.get("/getHomes/:city/:state", async (req, res) => {
     };
     const data = await axios.request(options);
     var homes = data.data.properties;
-    console.log(data.data.properties);
-    res.json(homes); 
+    homes.user_id = req.session.user_id,
+    homes.push({user_id: req.session.user_id})
+
+    console.log(req.session.user_id);
+    res.json({homes: homes, user_id: req.session.user_id}); 
 
     
   } catch (err) {
