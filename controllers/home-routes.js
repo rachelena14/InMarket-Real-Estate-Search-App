@@ -5,6 +5,10 @@ router.get("/", async (req, res) => {
     res.render("homepage");
 });
 
+router.get("/all", (req, res) => {
+  res.render("all-homes");
+})
+
 router.get("/login", (req, res) => {
   try {
     if (req.session.loggedIn) {
