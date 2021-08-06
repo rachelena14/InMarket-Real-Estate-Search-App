@@ -5,13 +5,13 @@ router.get("/", async (req, res) => {
     res.render("homepage");
 });
 
-router.get("/all", (req, res) => {
-  res.render("all-homes");
-})
+
 
 router.get("/login", (req, res) => {
+  console.log("trying to login");
   try {
     if (req.session.loggedIn) {
+      console.log("redirecting back to home");
       res.redirect("/");
       return;
     }

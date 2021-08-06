@@ -20,5 +20,6 @@ const seachFormHandler = async (event) => {
 		  alert('Failed to search');
 		}
 	  }
-	};
-}
+};
+
+document.querySelector("#searchForm").addEventListener("submit", seachFormHandler);

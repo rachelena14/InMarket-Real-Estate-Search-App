@@ -1,7 +1,7 @@
   
   {{!-- Search input form for properties --}}
   <div class="row">
-    <form class="col s6">
+    <form class="col s6" id="searchForm">
       <div class="row">
         <div class="input-field col s6">
           <textarea id="city-input" class="materialize-textarea"></textarea>
@@ -12,10 +12,9 @@
           <label for="search-box">Search for a State: </label>
         </div>
       </div>
+      <button type="submit">submit</button>
     </form>
   </div>
 
-  <div>
-    {{> all-homes }}
-  </div>
+  
         
