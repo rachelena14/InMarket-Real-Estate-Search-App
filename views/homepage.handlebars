@@ -1,19 +1,21 @@
   
   {{!-- Search input form for properties --}}
-  {{#each homes as |home|}}
   <div class="row">
     <form class="col s6">
       <div class="row">
         <div class="input-field col s6">
-          <textarea id="textarea1" class="materialize-textarea"></textarea>
+          <textarea id="city-input" class="materialize-textarea"></textarea>
           <label for="search-box">Search for a city: </label>
+        </div>
+        <div class="input-field col s6">
+          <textarea id="state-input" class="materialize-textarea"></textarea>
+          <label for="search-box">Search for a State: </label>
         </div>
       </div>
     </form>
-  {{!-- Search results for properties --}}
-    <div >
-      <p>List price: ${{list_price}}</p>
-    </div>
-    {{/each}}
+  </div>
+
+  <div>
+    {{> all-homes }}
   </div>
         

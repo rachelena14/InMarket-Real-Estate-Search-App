@@ -5,12 +5,6 @@ class Property extends Model {}
 
 Property.init(
   {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      foreignKey: true,
-      autoIncrement: true,
-    },
     list_price: {
       type: DataTypes.INTEGER,
     },
