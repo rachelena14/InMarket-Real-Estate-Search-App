@@ -1,15 +1,20 @@
 const User = require('./User');
 const Property = require('./Properties');
+const Location = require("./Location")
 
 Property.belongsTo(User, {
     foreignKey: 'user_id',
 });
 
-User.hasMany(Property, {
+Location.belongsTo(Property, {
     foreignKey: 'property_id',
 });
 
-module.exports = { User, Property };
+Property.hasMany(Location, {
+    foreignKey: 'property_id'
+})
+
+module.exports = { User, Property, Location };
 
 
 

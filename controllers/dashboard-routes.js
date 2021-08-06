@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Property } = require("../models");
+const { User, Property, Location } = require("../models");
 const auth = require("../utils/auth");
 
 router.get("/", auth, async (req, res) => {
@@ -30,12 +30,12 @@ router.get("/", auth, async (req, res) => {
         },
       ],
     });
-
     //map over those post and render display
     const properties = propertyData.map((property) =>
       property.get({ plain: true })
     );
-    res.render("all-properties", {
+    console.log(properties);
+    res.render("saved-properties", {
       properties,
       loggedIn: req.session.loggedIn,
       layout: "dashboard.handlebars",

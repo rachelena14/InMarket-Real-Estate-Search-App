@@ -17,6 +17,7 @@ router.get("/", async (req, res) => {
 
 //POST User data and save to the db
 router.post("/", async (req, res) => {
+  console.log("creating new user");
   try {
     const userData = await User.create({
       username: req.body.username,
@@ -27,7 +28,7 @@ router.post("/", async (req, res) => {
       req.session.username = userData.username;
       req.session.loggedIn = true;
     });
-    res.status(201).json(userData);
+    res.status(200).json(userData);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -73,7 +74,7 @@ router.post("/login", async (req, res) => {
 });
 
 //Logout
-router.post("/logout", auth, (req, res) => {
+router.post("/logout", (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();

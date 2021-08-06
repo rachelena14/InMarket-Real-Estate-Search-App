@@ -77,7 +77,7 @@ router.get("/getHomes/:city/:state", async (req, res) => {
     const data = await axios.request(options);
     var homes = data.data.properties;
     // console.log(data);
-    res.render("all-homes", {homes}); 
+    res.render("searched-homes", {homes}); 
     
   } catch (err) {
     console.log(err);

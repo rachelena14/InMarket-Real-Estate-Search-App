@@ -12,11 +12,18 @@ Location.init(
       type: DataTypes.INTEGER,
     },
     state_code: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
     },
     city: {
       type: DataTypes.STRING,
     },
+    property_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'property',
+        key: 'id'
+      }
+    }
   },
   {
     sequelize,
