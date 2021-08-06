@@ -40,11 +40,11 @@ Para que pueda organizar y planificar mi futuro negocio.
 
 # Demo 
 
-![Demo](./images/EXAMPLE.gif)
+![Demo](./public/images/from.png)
 
 # Database Schema and remote : 
 
-![Database Schema](./images/database.png)
+![Database Schema](./public/images/database.png)
 
 * **Locations** :
 
@@ -157,7 +157,9 @@ If you have any questions about the repo,
 [open an issue](https://github.com/RLAQUEA/project-2/issues) 
 or contact me directly at [Email](mailto:cartaya1@msn.com).
 
-# GitHub - Binary Beast.
+# GitHub 
+
+Binary Beast.
 
 - Raquel Laquea, 
 - Kyle M Mularoni,
@@ -165,6 +167,6 @@ or contact me directly at [Email](mailto:cartaya1@msn.com).
 - Alex Abbamondi,
 - Luis R. Cartaya.
 
-[GitHub Profile](https://github.com/cartaya1)
+[GitHubfile](https://github.com/RLAQUEA/project-2)
 
 
