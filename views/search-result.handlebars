@@ -1,4 +1,5 @@
-<h2>Here are your saved properties</h2>
+<button type="submit"><a href="/search"></a>Back to Search</button>
+
 {{#each properties as |property| }}
 <div class="property-card">
   <div class="property-card-header">
@@ -33,6 +34,6 @@
     </p>
   </div>
 </div>
-{{/each}}
 
-<button><a href="/dashboard/search">Search for properties</a></button>
+<button type="submit" id="saved-homes">Save Home</button>
+{{/each}}

@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { User, Property, Location } = require("../../models");
 const auth = require("../../utils/auth");
+const axios = require("axios")
 
 router.get("/", async (req, res) => {
   try {
@@ -57,7 +58,7 @@ router.post("/", async (req, res) => {
 router.get("/getHomes/:city/:state", async (req, res) => {
   var city = req.params.city;
   var state = req.params.state;
-  console.log(state, city);
+  console.log("Server api call for " + state, city);
   try {
     var options = {
       method: "GET",
@@ -76,8 +77,9 @@ router.get("/getHomes/:city/:state", async (req, res) => {
     };
     const data = await axios.request(options);
     var homes = data.data.properties;
-    // console.log(data);
-    res.render("searched-homes", {homes}); 
+    console.log(data.data.properties);
+    res.json(homes); 
+
     
   } catch (err) {
     console.log(err);
