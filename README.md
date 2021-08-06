@@ -12,6 +12,8 @@ Los desarrolladores a menudo tienen la tarea de crear interfaces que faciliten a
 
 Anyone who has ever experienced the home buying process knows that it can be stressful.  This application is intended to assist the user by allowing them to search for homes in their area using their chosen search criteria, making the search for their 'home sweet home' a little easier.  
 
+Cualquiera que haya experimentado el proceso de compra de una vivienda sabe que puede ser estresante. Esta aplicación está destinada a ayudar al usuario permitiéndole buscar casas en su área utilizando los criterios de búsqueda elegidos, lo que facilita un poco la búsqueda del "hogar, dulce hogar".
+
 # Table of Contents
 
 * [Demo](#demo)
@@ -37,7 +39,7 @@ Para que pueda organizar y planificar mi futuro negocio.
 
 # Demo 
 
-![Demo](./images/EXAMPLE.gif)
+![Demo](./public/images/orlando.jpeg)
 
 
 # Technology
@@ -58,7 +60,7 @@ Para que pueda organizar y planificar mi futuro negocio.
 * Express web framework for Node.js which allows routing, middleware and the view system. 
 
 **4. [Sequelize](https://www.npmjs.com/package/sequelize)** :
-* Application uses Sequelize, which is a promise-based Node.js ORM for Postgres, MySQL, SQL Server. 
+* Application uses Sequelize, which is a promise-based Node.js ORM for Postgres, MySQL, SQL Server.
 
 
 **4. [Axios](https://www.npmjs.com/package/axios)**:
@@ -100,6 +102,7 @@ npm start
 5. Created three tables - Properties, Users and Locations. These tables are connected with primary and foreign keys.
 
 6. Included a `schema.sql` to hold databse schema and relation file to API database. This makes development of individual features much easier.
+![database](./public/images/database.png)
 
 # License
 This project is under ![GitHub license](https://img.shields.io/badge/license-ISC-blue.svg).
