@@ -1,38 +1,22 @@
 <h2>Here are your saved properties</h2>
 {{#each properties as |property| }}
-<div class="property-card">
-  <div class="property-card-header">
-  </div>
-  {{!-- Property Information --}} 
-  <img class="images">{{property.photos}}</img>
-  <div class="card-body">
-    <p>
-      Location:
-      {{property.address}}
-    </p>
-    <p>List Price:
-      {{property.list_price}}
-    </p>
-    <p>Bedrooms:
-      {{property.beds}}
-    </p>
-    <p>Bathrooms:
-      {{property.baths}}
-    </p>
-    <p>Garage:
-    {{property.garage}}
-    </p>
-    <p>Stories:
-      {{property.stories}}
-    </p>
-    <p>Type of property:
-    </p>
-    {{property.home_type}}
-    Square footage:
-    {{property.sqft}}
-    </p>
-  </div>
-</div>
+ <div class="col s4 ">
+      <div class="card">
+        <div class="card-image">
+          <img class="img-size" src={{property.image}}>
+        </div>
+        <div class="card-content">
+          <p><b>Location:</b> {{property.address}}</p>
+          <p><b>List Price:</b> {{property.list_price}}</p>
+          <p><b>Bedrooms:</b> {{property.beds}}</p>
+          <p><b>Garage:</b> {{property.garage}}</p>
+          <p><b>Stories:</b> {{property.stories}}</p>
+          <p><b>Type:</b> {{property.home_type}}</p>
+          <p><b>Square footage:</b> {{property.sqft}}</p>
+          <button type="submit" id="deleteButton">delete</button>
+        </div>
+      </div>
+    </div>
 {{/each}}
 
-<button><a href="/dashboard/search">Search for properties</a></button>
+<script src="/js/deleteProperty.js"></script>

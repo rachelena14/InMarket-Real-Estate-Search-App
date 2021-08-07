@@ -14,11 +14,7 @@ const searchFormHandler = async (event) => {
     });
 
     if (res.ok) {
-      //document.location.replace('/dashboard/searched');
       const data = await res.json();
-      console.log(data.user_id);
-      console.log(data.homes);
-      //return homes;
 
       data.homes.forEach((home) => {
         let divColEl = document.createElement("div");
@@ -132,6 +128,7 @@ const saveHandler = async (event) => {
 	let user_id = event.target.dataset.id
 
   if (event.target && event.target.id == "save") {
+	currentHome.image = card.children[0].children[0].currentSrc;
 	currentHome.address = card.children[1].childNodes[0].textContent.split(":")[1];
 	currentHome.list_price = card.children[1].childNodes[1].textContent.split(":")[1];
 	currentHome.beds = card.children[1].childNodes[2].textContent.split(":")[1];
@@ -141,6 +138,8 @@ const saveHandler = async (event) => {
 	currentHome.home_type = card.children[1].childNodes[6].textContent.split(":")[1];
 	currentHome.sqft = card.children[1].childNodes[7].textContent.split(":")[1];
 	currentHome.year_built = card.children[1].childNodes[8].textContent.split(":")[1];
+
+	console.log(currentHome);
 
 	card.remove();
 	await fetch("/api/property/saveHome/" + user_id, {
