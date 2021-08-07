@@ -10,25 +10,30 @@
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
 
-<header>
+{{#if loggedIn}}
+<nav>
   <div class="nav-wrapper">
-    <h1 class="brand-logo">inMarket</h1>
-    <nav class="navbar mt-2">
-      {{#if loggedIn}}
-      <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li><a href="/">Homepage</a></li>
-        <li><a href="/dashboard">Dashboard</a></li>
-        <button href="/" id="logout">logout</button>
-        {{else}}
-        <a href="/login">Login</a></li>
-        {{/if}}
-      </ul>
-      </nav>
+    <a href="/" class="brand-logo">Homepage</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="/dashboard" class="">Dashboard</a></li>
+      <li><a href="#" id="logout" class="button">logout</a></li>
+    </ul>
   </div>
-</header>
+</nav>
+{{else}}
+<nav>
+   <div class="nav-wrapper">
+     <a href="/" class="brand-logo">Homepage</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="/dashboard" class="">Dashboard</a></li>
+       <li><a href="/login" class="button">Login</a></li>
+    </ul>
+  </div>
+</nav>
+{{/if}}
 
 <main>
-  <h2>welcome to your dashboard</h2>
+  <h2>Welcome to your dashboard</h2>
   {{{ body }}}
 </main>
 

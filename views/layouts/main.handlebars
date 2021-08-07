@@ -5,56 +5,63 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>inMarket</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/style.css">
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
 
-  <div class="wrapper">
-    <header>
-        <h1 class="has-text-black px-3 py-3 has-text-weight-bold">inMarket</h1>
-        <nav class="navbar mt-2">
-           {{!-- {{#if loggedIn}} --}}
-            <a href="/" class="navbar-item is-hoverable pt-1">Homepage</a>
-            <a href="/dashboard" class="navbar-item is-hoverable pt-1">Dashboard</a>
-            <a href="/dashboard/create/" class="navbar-item is-hoverable pt-1 mr-4">Look Propiety</a>
-            <button href="#" id="logout" class="button is-danger">logout</button>
-            {{!-- {{else}} --}}
-            <a href="/" class="navbar-item is-hoverable pt-1">Homepage</a>
-            <a href="/login" class="button is-primary">Login</a>
-            {{!-- {{/if}} --}}
-        </nav>
-    </header>
-
-    <main>
-            {{{ body }}}
-    </main>
-
-    <footer class="footer rows pb-2">
-        <div class="row-is-full content has-text-centered">
-            <p>
-            <a href="/">Homepage</a>{{#if loggedIn}} | 
-            <a href="/dashboard/">Dashboard</a> | 
-            <a href="/dashboard/create/">New Propiety</a>
-            {{else}}
-             | <a href="/login/">Login</a>
-            {{/if}}
-            </p>
-        </div>
-      <div class="row-is-full content has-text-centered">
-    <p>
-      <strong>inMarket</strong> by <a href="https://github.com/RLAQUEA/project-2">Binary-Beast</a> | source code:
-      <a href="https://github.com/RLAQUEA/project-2"><i class="fab fa-github"></i></a> |  
-       <a href="mailto:cartaya1@msn.com"><i class="far fa-envelope"></i></a> | <a href="https://twitter.com/cartayas_USA">
-        <img alt="Twitter: cartayas_USA" class="mt-3" src="https://img.shields.io/twitter/follow/cartayas_USA.svg?style=social" target="_blank" />
-    </p>
+{{#if loggedIn}}
+<nav>
+  <div class="nav-wrapper">
+    <a href="/" class="brand-logo">Homepage</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="/dashboard" class="">Dashboard</a></li>
+      <li><button href="#" id="logout" class="button">logout</button></li>
+    </ul>
   </div>
-    </footer>
+</nav>
+{{else}}
+<nav>
+   <div class="nav-wrapper">
+     <a href="/" class="brand-logo">Homepage</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="/dashboard" class="">Dashboard</a></li>
+       <li><a href="/login" class="button">Login</a></li>
+    </ul>
   </div>
+</nav>
+{{/if}}
+<div class="wrapper">
+  <header>
+    <h1 class="title">inMarket</h1>
 
+  </header>
+  <main>
+    {{{ body }}}
+  </main>
 
+  <footer class="footer rows pb-2">
+    <div class="row-is-full content has-text-centered">
+      <p>
+        <a href="/">Homepage</a>{{#if loggedIn}} |
+        <a href="/dashboard/">Dashboard</a> |
+        {{else}}
+        | <a href="/login/">Login</a>
+        {{/if}}
+      </p>
+    </div>
+    <div class="row-is-full content has-text-centered">
+      <p>
+        <strong>inMarket</strong> by <a href="https://github.com/RLAQUEA/project-2">Binary-Beast</a> | source code:
+        <a href="https://github.com/RLAQUEA/project-2"><i class="fab fa-github"></i></a> |
+      </p>
+    </div>
+  </footer>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="/js/logout.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
 </body>
 
 </html>
