@@ -1,119 +1,161 @@
-const results = document.querySelector(".home-results")
-
+const results = document.querySelector(".home-results");
 
 const searchFormHandler = async (event) => {
-	event.preventDefault();
+  event.preventDefault();
 
-	const city = document.querySelector('#city-input').value.trim();
-    const state = document.querySelector('#state-input').value.trim();
+  const city = document.querySelector("#city-input").value.trim();
+  const state = document.querySelector("#state-input").value.trim();
 
-	if (city && state) {
-		console.log("searching for " + city, state);
-		const res = await fetch('/api/property/getHomes/' + city + '/' + state, {
-		  method: 'GET',
-		  headers: { 'Content-Type': 'application/json' },
-		});
-	
-		if (res.ok) {
-		  //document.location.replace('/dashboard/searched');
-		  const data = await res.json();
-		  console.log(data.user_id);
-		  console.log(data.homes);
-		  //return homes;
+  if (city && state) {
+    console.log("searching for " + city, state);
+    const res = await fetch("/api/property/getHomes/" + city + "/" + state, {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    });
 
-		  data.homes.forEach(home => {
-			  let divColEl = document.createElement("div");
-			  divColEl.setAttribute("class", "col s4")
-			  results.append(divColEl)
-			
-			  let divCardEl = document.createElement("div");
-			  divCardEl.setAttribute("class", "card");
-			  divColEl.append(divCardEl);
+    if (res.ok) {
+      //document.location.replace('/dashboard/searched');
+      const data = await res.json();
+      console.log(data.user_id);
+      console.log(data.homes);
+      //return homes;
 
-			  let divImgEl = document.createElement("div");
-			  divImgEl.setAttribute("class", "card-image");
-			  divCardEl.append(divImgEl);
+      data.homes.forEach((home) => {
+        let divColEl = document.createElement("div");
+        divColEl.setAttribute("class", "col s4");
+        results.append(divColEl);
 
-			  let photoEl = document.createElement("img");
-			  if(home.primary_photo.href) {
-				photoEl.setAttribute("src", home.primary_photo.href);
-				divImgEl.append(photoEl);
-			  }
-			  
-			  let divContentEl = document.createElement("div");
-			  divContentEl.setAttribute("class", "card-content");
-			  divCardEl.append(divContentEl);
+        let divCardEl = document.createElement("div");
+        divCardEl.setAttribute("class", "card");
+        divColEl.append(divCardEl);
 
-			  let addressEl = document.createElement("p");
-			  addressEl.innerHTML = "<b>Address:</b> " + home.location.address.line + ", " + home.location.address.city + ", " + home.location.address.state_code + ", " + home.location.address.postal_code
-			  addressEl.setAttribute("class", "address");
-			  divContentEl.append(addressEl);
+        let divImgEl = document.createElement("div");
+        divImgEl.setAttribute("class", "card-image");
+        divCardEl.append(divImgEl);
 
-			  let listPriceEl = document.createElement("p");
-			  listPriceEl.innerHTML = "<b class='list-price'>Listing Price:</b> $" + home.list_price;
+        let photoEl = document.createElement("img");
+        if (home.primary_photo.href) {
+          photoEl.setAttribute("src", home.primary_photo.href);
+          photoEl.setAttribute("class", "img-size");
+          divImgEl.append(photoEl);
+        }
 
-			  divContentEl.append(listPriceEl);
+        let divContentEl = document.createElement("div");
+        divContentEl.setAttribute("class", "card-content");
+        divCardEl.append(divContentEl);
 
-			  let bedEl = document.createElement("p");
-			  bedEl.innerHTML = "<b>Beds:</b> " + home.description.beds;
-			  divContentEl.append(bedEl);
+        let addressEl = document.createElement("p");
+        addressEl.innerHTML =
+          "<b>Address:</b> " +
+          home.location.address.line +
+          ", " +
+          home.location.address.city +
+          ", " +
+          home.location.address.state_code +
+          ", " +
+          home.location.address.postal_code;
+        addressEl.setAttribute("class", "address");
+        divContentEl.append(addressEl);
 
-			  let bathEl = document.createElement("p");
-			  bathEl.innerHTML = "<b>Baths:</b> " + home.description.baths;
-			  divContentEl.append(bathEl);
+        let listPriceEl = document.createElement("p");
+        listPriceEl.innerHTML =
+          "<b class='list-price'>Listing Price:</b> $" + home.list_price;
+        divContentEl.append(listPriceEl);
 
-			  let garageEl = document.createElement("p");
-			  garageEl.innerHTML = "<b>garage:</b> " + home.description.garage + " car";
-			  divContentEl.append(garageEl);
+        let bedEl = document.createElement("p");
+        bedEl.innerHTML = "<b>Beds:</b> " + home.description.beds;
+        divContentEl.append(bedEl);
 
-			  let storiesEl = document.createElement("p");
-			  storiesEl.innerHTML = "<b>stories:</b> " + home.description.stories;
-			  divContentEl.append(storiesEl);
+        let bathEl = document.createElement("p");
+        bathEl.innerHTML = "<b>Baths:</b> " + home.description.baths;
+        divContentEl.append(bathEl);
 
-			  let homeTypeEl = document.createElement("p");
-			  homeTypeEl.innerHTML = "<b>Type:</b> " + home.description.type;
-			  divContentEl.append(homeTypeEl);
+        let garageEl = document.createElement("p");
+        if (home.description.garage == null) {
+          garageEl.innerHTML = "<b>garage:</b> N/A";
+          divContentEl.append(garageEl);
+        } else {
+          garageEl.innerHTML =
+            "<b>garage:</b> " + home.description.garage + " car";
+          divContentEl.append(garageEl);
+        }
 
-			 
+        let storiesEl = document.createElement("p");
+        storiesEl.innerHTML = "<b>stories:</b> " + home.description.stories;
+        divContentEl.append(storiesEl);
 
+        let homeTypeEl = document.createElement("p");
+        if (home.description.type == "single_family") {
+          homeTypeEl.innerHTML = "<b>Type:</b> single family";
+          divContentEl.append(homeTypeEl);
+        } else {
+          homeTypeEl.innerHTML = "<b>Type:</b> multi family";
+          divContentEl.append(homeTypeEl);
+        }
 
+        let sqftEl = document.createElement("p");
+        sqftEl.innerHTML = "<b>Sq. Ft.:</b> " + home.description.sqft;
+        divContentEl.append(sqftEl);
 
+        let yearBuiltEl = document.createElement("p");
+        yearBuiltEl.innerHTML =
+          "<b>Year Built:</b> " + home.description.year_built;
+		  divContentEl.append(yearBuiltEl);
 
-			  
-			  let linkEl = document.createElement("a");
-			  linkEl.setAttribute("class", "btn-floating btn-large waves-effect waves-light red");
-			  divContentEl.append(linkEl);
-			  
-			  let iconEl = document.createElement("i");
-			  iconEl.setAttribute("class", "material-icons");
-			  linkEl.append(iconEl);
+        let linkEl = document.createElement("a");
+        linkEl.setAttribute(
+          "class",
+          "btn-floating btn-large waves-effect waves-light red icon-top-margin"
+        );
+        divContentEl.append(linkEl);
 
-		      let iconTextEl = document.createElement("p");
-			  iconTextEl.textContent = "+";
-			  iconEl.append(iconTextEl);
+        let iconEl = document.createElement("i");
+        iconEl.setAttribute("class", "material-icons");
+        linkEl.append(iconEl);
 
-			  iconTextEl.setAttribute("data-id", data.user_id);
-			  iconTextEl.setAttribute("id", "save");
+        let iconTextEl = document.createElement("p");
+        iconTextEl.textContent = "+";
+        iconEl.append(iconTextEl);
 
-		  });
-
-		} else {
-		  alert('Failed to search');
-		}
-	  }
+        iconTextEl.setAttribute("data-id", data.user_id);
+        iconTextEl.setAttribute("id", "save");
+      });
+    } else {
+      alert("Failed to search");
+    }
+  }
 };
 
-const saveHandler = (event) => {
-	if(event.target && event.target.id == "save") {
-		console.log(event.target);
-		console.log("click");
-		event.target.closest(".list-price");
-		console.log(event.target.parentNode.parentNode.parentNode.parentNode);
-		//childNodes firstchild lastchild children firstelementchild lastelementchild
-		//get the text of the element
-	}
-}
+const saveHandler = async (event) => {
+	let card = event.target.parentNode.parentNode.parentNode.parentNode
+	let currentHome = {}
+	let user_id = event.target.dataset.id
 
-document.querySelector("#searchForm").addEventListener("click", searchFormHandler);
+  if (event.target && event.target.id == "save") {
+	currentHome.address = card.children[1].childNodes[0].textContent.split(":")[1];
+	currentHome.list_price = card.children[1].childNodes[1].textContent.split(":")[1];
+	currentHome.beds = card.children[1].childNodes[2].textContent.split(":")[1];
+	currentHome.baths = card.children[1].childNodes[3].textContent.split(":")[1];
+	currentHome.garage = card.children[1].childNodes[4].textContent.split(":")[1];
+	currentHome.stories = card.children[1].childNodes[5].textContent.split(":")[1];
+	currentHome.home_type = card.children[1].childNodes[6].textContent.split(":")[1];
+	currentHome.sqft = card.children[1].childNodes[7].textContent.split(":")[1];
+	currentHome.year_built = card.children[1].childNodes[8].textContent.split(":")[1];
+
+	card.remove();
+	await fetch("/api/property/saveHome/" + user_id, {
+		method: "POST",
+		headers: { "Content-Type": "application/json" },
+		body: JSON.stringify(currentHome),
+	  });
+
+	  //add button for this redirect
+	  //document.location.replace("/dashboard")
+  }
+};
+
+document
+  .querySelector("#searchForm")
+  .addEventListener("click", searchFormHandler);
 document.addEventListener("click", saveHandler);
 console.log("file hooked up");

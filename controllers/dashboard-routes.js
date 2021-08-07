@@ -10,6 +10,7 @@ router.get("/", auth, async (req, res) => {
       },
       attributes: [
         "id",
+        "address",
         "list_price",
         "beds",
         "baths",
@@ -20,10 +21,6 @@ router.get("/", auth, async (req, res) => {
         "year_built",
       ],
       include: [
-        {
-          model: Location,
-          attributes: ["id", "address", "postal_code", "state_code", "city"],
-        },
         {
           model: User,
           attributes: ["username"],
@@ -46,11 +43,11 @@ router.get("/", auth, async (req, res) => {
 });
 
 router.get("/search", (req, res) => {
-  res.render("search")
-})
+  res.render("search");
+});
 
 router.get("/searched", auth, (req, res) => {
   res.render("searched-homes");
-})
+});
 
 module.exports = router;

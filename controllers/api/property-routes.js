@@ -19,15 +19,12 @@ router.get("/", async (req, res) => {
       ],
       include: [
         {
-          model: Location,
-          attributes: ["id", "address", "postal_code", "state_code", "city"],
-        },
-        {
           model: User,
           attributes: ["username"],
         },
       ],
     });
+
     res.status(200).json(propertyData);
   } catch (err) {
     console.log(err);
@@ -35,15 +32,19 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
+router.post("/saveHome/:id", async (req, res) => {
+  console.log(req.params.id);
+  console.log(req.body);
+  console.log("im in the server side POST");
   try {
     const propertyData = await Property.create({
       list_price: req.body.list_price,
+      address: req.body.address,
       beds: req.body.beds,
       baths: req.body.baths,
       garage: req.body.garage,
       stories: req.body.stories,
-      home_types: req.body.home_types,
+      home_type: req.body.home_type,
       sqft: req.body.sqft,
       year_built: req.body.year_built,
       user_id: req.session.user_id,
@@ -58,7 +59,6 @@ router.post("/", async (req, res) => {
 router.get("/getHomes/:city/:state", async (req, res) => {
   var city = req.params.city;
   var state = req.params.state;
-  console.log("Server api call for " + state, city);
   try {
     var options = {
       method: "GET",
@@ -79,8 +79,6 @@ router.get("/getHomes/:city/:state", async (req, res) => {
     var homes = data.data.properties;
     homes.user_id = req.session.user_id,
     homes.push({user_id: req.session.user_id})
-
-    console.log(req.session.user_id);
     res.json({homes: homes, user_id: req.session.user_id}); 
 
     

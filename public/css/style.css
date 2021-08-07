@@ -162,3 +162,14 @@
       display:flex;
       flex-direction: column;
   }
+
+
+
+
+  .icon-top-margin {
+    margin-top: 15px;
+  }
+
+  .img-size {
+    height: 250px;
+  }
