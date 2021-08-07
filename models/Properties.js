@@ -5,8 +5,11 @@ class Property extends Model {}
 
 Property.init(
   {
+    address: {
+      type: DataTypes.STRING
+    },
     list_price: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
     },
     beds: {
       type: DataTypes.INTEGER,
@@ -15,7 +18,7 @@ Property.init(
       type: DataTypes.INTEGER,
     },
     garage: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
     },
     stories: {
       type: DataTypes.INTEGER,
