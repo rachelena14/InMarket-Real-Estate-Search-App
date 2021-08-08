@@ -1,6 +1,7 @@
+{{!-- Main Layout --}}
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,7 @@
   <link rel="stylesheet" href="/css/style.css">
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
-
+{{!-- Nav Bar shows Login if logged out and Logout if logged in --}}
 {{#if loggedIn}}
 <nav>
   <div class="nav-wrapper">
@@ -32,15 +33,17 @@
   </div>
 </nav>
 {{/if}}
+
+{{!-- Title --}}
 <div class="wrapper">
   <header>
     <h1 class="title">inMarket</h1>
-
   </header>
-  <main>
+  <main class="container">
     {{{ body }}}
   </main>
 
+  {{!-- Footer --}}
   <footer class="footer rows pb-2">
     <div class="row-is-full content has-text-centered">
       <p>
@@ -51,17 +54,19 @@
         {{/if}}
       </p>
     </div>
+
+    {{!-- Github Link --}}
     <div class="row-is-full content has-text-centered">
       <p>
-        <strong>inMarket</strong> by <a href="https://github.com/RLAQUEA/project-2">Binary-Beast</a> | source code:
+        <strong>inMarket</strong> by <a href="https://github.com/RLAQUEA/project-2">Binary-Beasts</a> | source code:
         <a href="https://github.com/RLAQUEA/project-2"><i class="fab fa-github"></i></a> |
       </p>
     </div>
   </footer>
 </div>
+
+{{!-- Scripts --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="/js/logout.js"></script>
-
 </body>
-
 </html>
