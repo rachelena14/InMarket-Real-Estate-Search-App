@@ -37,7 +37,7 @@ const searchFormHandler = async (event) => {
         }
 
         let divContentEl = document.createElement("div");
-        divContentEl.setAttribute("class", "card-content");
+        divContentEl.setAttribute("class", "card-content searched-cards");
         divCardEl.append(divContentEl);
 
         let addressEl = document.createElement("p");
@@ -101,7 +101,7 @@ const searchFormHandler = async (event) => {
         let linkEl = document.createElement("a");
         linkEl.setAttribute(
           "class",
-          "btn-floating btn-large waves-effect waves-light red icon-top-margin"
+          "btn-floating btn-large waves-effect waves-light red icon-top-margin plus-size"
         );
         divContentEl.append(linkEl);
 
