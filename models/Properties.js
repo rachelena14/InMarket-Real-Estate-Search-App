@@ -5,6 +5,9 @@ class Property extends Model {}
 
 Property.init(
   {
+    image: {
+      type: DataTypes.STRING
+    },
     address: {
       type: DataTypes.STRING
     },

@@ -10,6 +10,7 @@ router.get("/", auth, async (req, res) => {
       },
       attributes: [
         "id",
+        "image",
         "address",
         "list_price",
         "beds",

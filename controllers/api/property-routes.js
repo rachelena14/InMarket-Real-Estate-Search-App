@@ -8,6 +8,8 @@ router.get("/", async (req, res) => {
     const propertyData = await Property.findAll({
       attributes: [
         "id",
+        "image",
+        "address",
         "list_price",
         "beds",
         "baths",
@@ -38,6 +40,7 @@ router.post("/saveHome/:id", async (req, res) => {
   console.log("im in the server side POST");
   try {
     const propertyData = await Property.create({
+      image: req.body.image,
       list_price: req.body.list_price,
       address: req.body.address,
       beds: req.body.beds,
