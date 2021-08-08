@@ -15,3 +15,8 @@
   
 //   //eventlistener
 //   document.querySelector('.deleteButton').addEventListener('click', deletePropertyHandler);
+
+function deletePropertyHandler() {
+    var myobj = document.querySelector(".deleteProperty");
+    myobj.remove();
+  }

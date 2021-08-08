@@ -1,7 +1,7 @@
 {{!-- Saved Properties --}}
 <h4>Here are your saved properties:</h4>
 {{#each properties as |property| }}
- <div class="col s4 ">
+ <div class="col s4 deleteProperty">
       <div class="card">
         <div class="card-image">
           <img class="img-size" src={{property.image}}>
@@ -14,7 +14,7 @@
           <p><b>Stories:</b> {{property.stories}}</p>
           <p><b>Type:</b> {{property.home_type}}</p>
           <p><b>Square footage:</b> {{property.sqft}}</p>
-          <button type="submit" id="deleteButton">delete</button>
+          <button type="submit" id="deleteButton" onclick="deletePropertyHandler()">delete</button>
         </div>
       </div>
     </div>
