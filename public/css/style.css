@@ -1,54 +1,70 @@
 * {
     box-sizing: border-box;
   }
-  
-  body, html {
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    font-family: sans-serif;
-    color: #333;
-  }
-  
+
   a {
     text-decoration: none;
     font-weight: bold;
-    color: black;
+    color: black;;
   }
   
+  body {
+    background-color: rgb(241, 241, 241);
+  }
+
+  main {
+    margin-bottom: 20%;
+    background-color: white;
+  }
+
+  .home-image {
+    display: block;
+    height: 90%;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   a:hover {
-    color: #3486eb;
+    color: teal;
+  }
+
+  nav ul {
+    padding-right: 3%;
+  }
+
+  nav .brand-logo {
+    padding-left: 3%;
   }
   
   button {
     border: 0;
     padding: 1%;
     font-weight: bold;
+    font-size: 26px;
     transition: background-color .1s;
     cursor: pointer;
+    background-color: rgb(248, 179, 152);
     border-radius: 5px;
   }
   
-  .post-list {
-    margin: 0;
-    padding: 0;
+  .title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;  
+}
+
+  main {
+    flex: 1;
+    padding: 2% 4%;
   }
+
+  .nav-wrapper {
+  background-color: cadetblue;
+  padding-bottom: 5%;
+}
   
-  textarea, input {
-    padding: .5%;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
-  
-  textarea:focus, input:focus {
-    outline: none;
-    border: 1px solid #3486eb;
-  }
-  
-  textarea {
-    min-width: 40%;
-    min-height: 100px;
-  }
   
   form > div {
     margin-bottom: 2%;
@@ -75,82 +91,14 @@
     padding: 0 1%;
   }
   
-  main {
-    flex: 1;
-    padding: 2% 4%;
-  }
-  
-  .btn-no-style {
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    text-decoration: none;
-    color: #225ca3;
-    font-size: 100%;
-    font-weight: bold;
-    transition: color .1s;
-    margin-left: 16px;
-  }
-  
-  .btn-no-style:hover {
-    background: none;
-    color: #3486eb;
-  }
-  
-  .delete-post-btn {
-    background-color: #d41414;
-  }
-  
-  .delete-post-btn:hover {
-    background-color: #ff643d;
-  }
-  
-  .post {
-    margin-bottom: 2%;
-    line-height: 150%;
-  }
-  
-  .post .title span {
-    font-style: italic;
-    font-size: 90%;
-    color: #7d7d7d;
-  }
-  
-  .edit-link {
-    display: block;
-    margin: -1.5% 0 2% 0;
-  }
-  
-  .comment-form {
-    margin-bottom: 5%;
-  }
-  
-  .comment {
-    padding: 1%;
-    margin-bottom: 1%;
-  }
-  
-  .comment:nth-child(odd) {
-    background-color: #fff5eb;
-  }
-  
-  .comment .meta {
-    font-size: 90%;
-    margin-bottom: .5%;
-    opacity: .6;
-  }
-  
-  .edit-post-form {
-    margin-bottom: 5%;
-  }
-  
   footer {
     border-top: 1px solid #ccc;
-    display: flex;
-    justify-content: center;
     padding: 1%;
     font-size: 110%;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    margin-top: 30%;
   }
 
   .card {
@@ -162,9 +110,6 @@
       display:flex;
       flex-direction: column;
   }
-
-
-
 
   .icon-top-margin {
     margin-top: 15px;

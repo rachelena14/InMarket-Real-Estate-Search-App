@@ -31,6 +31,9 @@ Cualquiera que haya experimentado el proceso de compra de una vivienda sabe que 
 As a User: 
 I want to be able to view and search for Homes in my area
 So that I can plan to buy or rent a property in the future
+When I log in I can view my saved properties, 
+Then when I log out, I am taken back to the home page.
+
 
 Como Usuario:
 Quiero poder ver y buscar los Apartamentos y casas de mi Area.
