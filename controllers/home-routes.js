@@ -1,12 +1,13 @@
+// required modules
 const router = require("express").Router();
 var axios = require("axios").default;
 
+//render the homepage
 router.get("/", async (req, res) => {
     res.render("homepage");
 });
 
-
-
+//render login page
 router.get("/login", (req, res) => {
   console.log("trying to login");
   try {
@@ -23,6 +24,7 @@ router.get("/login", (req, res) => {
   }
 });
 
+// render singup page
 router.get("/signup", (req, res) => {
   if (req.session.loggedIn) {
     res.redirect("/");

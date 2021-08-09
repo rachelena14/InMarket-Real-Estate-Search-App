@@ -1,8 +1,10 @@
+// required modules
 const router = require("express").Router();
 const { User, Property, Location } = require("../../models");
 const auth = require("../../utils/auth");
 const axios = require("axios")
 
+//api route to get all the property data
 router.get("/", async (req, res) => {
   try {
     const propertyData = await Property.findAll({
@@ -34,6 +36,7 @@ router.get("/", async (req, res) => {
   }
 });
 
+//api route to save the specific property
 router.post("/saveHome/:id", async (req, res) => {
   console.log(req.params.id);
   console.log(req.body);
@@ -59,6 +62,7 @@ router.post("/saveHome/:id", async (req, res) => {
   }
 });
 
+//route to get the properties based on the city and state
 router.get("/getHomes/:city/:state", async (req, res) => {
   var city = req.params.city;
   var state = req.params.state;
@@ -91,6 +95,7 @@ router.get("/getHomes/:city/:state", async (req, res) => {
   }
 })
 
+//route to get a single property (not implemented)
 router.get("/:id", async (req, res) => {
   try {
     const propertyData = await Property.findOne({
@@ -132,7 +137,9 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.delete("/:id", auth, async (req, res) => {
+//delete a single route (not implemented)
+router.delete("/:id", 
+auth, async (req, res) => {
   try {
     const propertyData = await Property.destroy({
       where: {
@@ -141,7 +148,7 @@ router.delete("/:id", auth, async (req, res) => {
     });
     //if no post found then display this message
     if (!propertyData) {
-      res.status(404).json({ message: "No post found with this id" });
+      res.status(404).json({ message: "No property found with this id" });
       return;
     }
     res.status(204).json(propertyData);

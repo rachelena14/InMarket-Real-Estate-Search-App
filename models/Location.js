@@ -1,8 +1,11 @@
+//required modules
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
+//class of location to extend class of model
 class Location extends Model {}
 
+// fields to implement in the location table
 Location.init(
   {
     address: {

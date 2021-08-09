@@ -1,7 +1,9 @@
+//required modules
 const router = require("express").Router();
 const { User, Property, Location } = require("../models");
 const auth = require("../utils/auth");
 
+//the information for all properties
 router.get("/", auth, async (req, res) => {
   try {
     const propertyData = await Property.findAll({
@@ -28,7 +30,7 @@ router.get("/", auth, async (req, res) => {
         },
       ],
     });
-    //map over those post and render display
+    //map over those properties and render display
     const properties = propertyData.map((property) =>
       property.get({ plain: true })
     );
@@ -43,10 +45,12 @@ router.get("/", auth, async (req, res) => {
   }
 });
 
+//route to get the search form
 router.get("/search", (req, res) => {
   res.render("search");
 });
 
+//route to get the searched homes (not used at the moment)
 router.get("/searched", auth, (req, res) => {
   res.render("searched-homes");
 });

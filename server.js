@@ -1,3 +1,4 @@
+//require modules
 const path = require("path");
 const express = require("express");
 const session = require("express-session");
@@ -7,9 +8,11 @@ const sequelize = require("./config/connection");
 const helpers = require("./utils/auth");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
+//instance of express with port number and dynamic port
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+//session information
 const sess = {
   secret: "Super secret secret",
   cookie: {},
@@ -20,6 +23,7 @@ const sess = {
   }),
 };
 
+//use session and helpers
 app.use(session(sess));
 const hbs = exphbs.create({ helpers });
 
@@ -31,8 +35,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
+//use controller routes
 app.use(controllers);
 
+//listen on the port number
 sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => console.log("Now listening"));
 });

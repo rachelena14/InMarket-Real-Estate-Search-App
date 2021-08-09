@@ -1,8 +1,11 @@
+//required modules
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
+//class of property to extends model class
 class Property extends Model {}
 
+//fields to include in the property table
 Property.init(
   {
     image: {
