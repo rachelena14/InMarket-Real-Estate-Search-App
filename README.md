@@ -42,7 +42,11 @@ Para que pueda organizar y planificar mi futuro negocio.
 
 # Demo 
 
-![Demo](./public/images/orlando.jpeg)
+![Demo](./img/main.png)
+![Demo1](./img/Login.png)
+![Demo2](./img/signup.png)
+![Demo3](./img/Dashboard.png)
+
 
 
 # Technology
@@ -105,7 +109,7 @@ npm start
 5. Created three tables - Properties, Users and Locations. These tables are connected with primary and foreign keys.
 
 6. Included a `schema.sql` to hold databse schema and relation file to API database. This makes development of individual features much easier.
-![database](./public/images/database.png)
+![database](./img/Database.png)
 
 # License
 This project is under ![GitHub license](https://img.shields.io/badge/license-ISC-blue.svg).
