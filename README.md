@@ -45,7 +45,8 @@ Para que pueda organizar y planificar mi futuro negocio.
 ![Demo](./img/main.png)
 ![Demo1](./img/Login.png)
 ![Demo2](./img/signup.png)
-![Demo3](./img/Dashboard.png)
+![Demo3](./img/search.png)
+![Demo4](./img/Dashboard.png)
 
 
 
@@ -124,7 +125,9 @@ Pull requests are always welcome!
 If you have any questions about the repo, 
 [open an issue](https://github.com/RLAQUEA/project-2/issues) 
 
-# GitHub - Binary Beasts
+# GitHub
+Binary Beasts
+
 - Alex Abbamondi
 - Luis R. Cartaya
 - Cristian Cuevas
