@@ -134,4 +134,5 @@ If you have any questions about the repo,
 
 [Link to GitHub Repository](https://github.com/RLAQUEA/project-2)
 
+[Heroku Deployed Site](https://fierce-waters-10639.herokuapp.com/)
 
