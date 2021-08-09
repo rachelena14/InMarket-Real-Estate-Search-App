@@ -1,11 +1,15 @@
+//area to display property results
 const results = document.querySelector(".home-results");
 
+// function to deal with the city state input and render cards
 const searchFormHandler = async (event) => {
   event.preventDefault();
 
+  //get input information
   const city = document.querySelector("#city-input").value.trim();
   const state = document.querySelector("#state-input").value.trim();
 
+  //if we have both then post that info to the axios route
   if (city && state) {
     console.log("searching for " + city, state);
     const res = await fetch("/api/property/getHomes/" + city + "/" + state, {
@@ -13,6 +17,7 @@ const searchFormHandler = async (event) => {
       headers: { "Content-Type": "application/json" },
     });
 
+    //if the response is ok then render this card for each property
     if (res.ok) {
       const data = await res.json();
 
@@ -122,6 +127,7 @@ const searchFormHandler = async (event) => {
   }
 };
 
+//function to save the home to the database
 const saveHandler = async (event) => {
 	let card = event.target.parentNode.parentNode.parentNode.parentNode
 	let currentHome = {}
@@ -153,6 +159,7 @@ const saveHandler = async (event) => {
   }
 };
 
+//eventlisteners
 document
   .querySelector("#searchForm")
   .addEventListener("click", searchFormHandler);

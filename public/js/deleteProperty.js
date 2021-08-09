@@ -1,3 +1,4 @@
+//function to delete from database (not implemented)
 // async function deletePropertyHandler() {
 
 //     //send to the route
@@ -16,6 +17,7 @@
 //   //eventlistener
 //   document.querySelector('.deleteButton').addEventListener('click', deletePropertyHandler);
 
+//front end delete for the saved properties
 function deletePropertyHandler() {
     var myobj = document.querySelector(".deleteProperty");
     myobj.remove();
