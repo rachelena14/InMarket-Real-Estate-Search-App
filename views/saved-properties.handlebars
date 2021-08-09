@@ -1,12 +1,12 @@
 {{!-- Saved Properties --}}
 <h4>Here are your saved properties:</h4>
 {{#each properties as |property| }}
- <div class="col s4 deleteProperty">
+ <div class="col s4 deleteProperty ">
       <div class="card">
         <div class="card-image">
           <img class="img-size" src={{property.image}}>
         </div>
-        <div class="card-content">
+        <div class="card-content saved-cards ">
           <p><b>Location:</b> {{property.address}}</p>
           <p><b>List Price:</b> {{property.list_price}}</p>
           <p><b>Bedrooms:</b> {{property.beds}}</p>
@@ -14,7 +14,7 @@
           <p><b>Stories:</b> {{property.stories}}</p>
           <p><b>Type:</b> {{property.home_type}}</p>
           <p><b>Square footage:</b> {{property.sqft}}</p>
-          <button type="submit" id="deleteButton" onclick="deletePropertyHandler()">delete</button>
+          <button type="submit" id="deleteButton" class="deleteButton" onclick="deletePropertyHandler()">delete</button>
         </div>
       </div>
     </div>
