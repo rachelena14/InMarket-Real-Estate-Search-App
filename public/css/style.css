@@ -39,13 +39,14 @@
   
   button {
     border: 0;
-    padding: 1%;
+    padding: 1% 2%;
     font-weight: bold;
     font-size: 26px;
     transition: background-color .1s;
     cursor: pointer;
     background-color: rgb(248, 179, 152);
     border-radius: 5px;
+    margin-top: 10px;
   }
   
   .title {
@@ -118,3 +119,26 @@
   .img-size {
     height: 250px;
   }
+
+  .searched-cards {
+    height: 350px;
+  }
+
+  .plus-size {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 10px;
+  }
+
+  @media only screen and (min-width: 993px) {
+    .container {
+      width: 100%;
+  }
+  }
+
+
+@media only screen and (min-width: 601px) {
+  .container {
+    width: 100%;
+}
+}
