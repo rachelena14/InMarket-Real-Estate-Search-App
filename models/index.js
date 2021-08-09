@@ -1,7 +1,9 @@
+//required modules
 const User = require('./User');
 const Property = require('./Properties');
 const Location = require("./Location")
 
+//associations
 Property.belongsTo(User, {
     foreignKey: 'user_id',
 });
