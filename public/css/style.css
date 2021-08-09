@@ -17,6 +17,10 @@
     background-color: white;
   }
 
+  .header-margin {
+    margin-bottom: 50px;
+  }
+  
   .home-image {
     display: block;
     height: 90%;
@@ -122,6 +126,16 @@
 
   .searched-cards {
     height: 350px;
+  }
+
+  .saved-cards {
+    height: 275px;
+  }
+
+  .deleteButton {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 20px;
   }
 
   .plus-size {
